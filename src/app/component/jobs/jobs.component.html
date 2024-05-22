@@ -1,2 +1,14 @@
 <p>jobs works!</p>
-<div>{{resumeCount}}</div>
+    <!-- <button (click)="changeSort()">{{sortOrder === 1? "^" : "v"}}</button> -->
+    <div *ngFor="let c of listJobs let i = index">
+        
+
+        <p>{{ i }}</p>
+        <app-single-job [jobData]="c" ></app-single-job>
+      
+    </div>
+    <br>
+
+   
+ 
+    

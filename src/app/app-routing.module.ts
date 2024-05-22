@@ -7,7 +7,7 @@ import { MaainComponent } from "./component/maain/maain.component";
 const routes: Routes = [
   { path: '', component: MaainComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'jobs', component: JobsComponent },
+  { path: 'jobs', component: JobsComponent},
  
 ];
 

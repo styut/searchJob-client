@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Job } from '../../models/job';
-
+import { jobService } from "../../service/job.service";
 @Component({
   selector: 'app-jobs',
   templateUrl: './jobs.component.html',
@@ -10,22 +10,29 @@ import { Job } from '../../models/job';
 })
 
 export class JobsComponent implements OnInit{
-  constructor(private router: Router, private route: ActivatedRoute){
+  constructor(private router: Router, private route: ActivatedRoute,private userService:jobService ){
   
   }
 
+
   listJobs: Job[] = [];
-  resumeCount: number=3;
+  selectedJob: Job | null = null;
   ngOnInit() {
-    // מנוי לשינויים ב־queryParams
-    this.route.queryParams.subscribe(params => {
-      // שליפת הנתונים שנשלחו ב־queryParams
-      this.resumeCount = +params['resumeCount'] || 0;
-      // עכשיו תוכל להשתמש בערך של resumeCount כרצונך
-    });
+   this.userService.getAllJobs().subscribe(res=>{
+    this.listJobs=res;
+   })
+  }
+  
+  showDetails(job: Job) {
+    this.selectedJob = job;
   }
 }
 
+
+
+
+
+ 
 
 
 
