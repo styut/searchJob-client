@@ -1,0 +1,48 @@
+.menu-item-category {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-color:rgb(255, 211, 130);
+    padding: 10px;
+    margin-bottom:30px;
+  }
+  
+  .menu-item-category-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .menu-item-category-label {
+    display:flexbox;
+    justify-content: space-between;
+   align-items: center;
+    
+    margin-bottom:5px;
+    cursor: pointer;
+  }
+  .menu-item-category-span{
+    padding-right: 3px;
+  }
+  .menu-item-category-label input[type="checkbox"] {
+    margin-right: 1px;
+    
+  }
+  
+  
+  
+  .menu-item-category-label input[type="checkbox"]:checked + span {
+    font-weight: bold;
+    color: orange;
+  }
+  
+  .menu-item-category-label span {
+    color:black;
+  }
+  
+  /* Additional styling for the dish item */
+  .menu-item-category-dish {
+    font-size: 16px;
+    margin-bottom: 5px;
+    
+  }
+  
