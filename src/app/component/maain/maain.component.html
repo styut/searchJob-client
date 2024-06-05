@@ -4,30 +4,33 @@
   <br>
   <br>
   <span>כמות קו"ח שנשלחו:{{userResume}} </span>
-<br>
-<br>
+  <br>
+  <br>
   <div class="user-info">
-    
+
     <a [routerLink]="'login'">login</a>
-    <!-- <a routerLink="/login">התחברות</a> -->
-
     <input type="text" id="jobSearch">
-    <a [routerLink]="'/jobs/'+ userReigon">סינון</a>
-    
-
-
+    <a [routerLink]="'/jobs/'+ userReigon+'/allJobs'">סינון</a>
   </div>
-
-
   <div class="footer">
-
     <div class="contact-info">
       <p>פרטי יצירת קשר עם מנהל האתר:</p>
       <p>טלפון: 123-456-7890</p>
       <!-- <p>אימייל: admin@example.com</p> -->
     </div>
- <!-- הכפתור להעלאת קבצים -->
- <!-- <input type="file" (change)="onFileSelected($event)">
+    <!-- הכפתור להעלאת קבצים -->
+    <!-- <input type="file" (change)="onFileSelected($event)">
  <span>{{ uploadedFiles }}</span> -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </div>
-  <router-outlet></router-outlet>
+  <div *ngFor="let c of listSearchResume let i = index">
+
+    <p>{{ i }}</p>
+    <p>{{ c}}</p>
+  </div>
+</div>
+<router-outlet></router-outlet>

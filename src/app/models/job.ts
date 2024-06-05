@@ -4,7 +4,7 @@ export interface Job {
     jobField: jobField;
     jojbTitle: string;
     scopeOfHours: string;
-    region: string;
+    area: string;
     requirements: string[];
     workFromHome: boolean;
   }

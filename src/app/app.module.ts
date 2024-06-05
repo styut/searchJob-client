@@ -39,7 +39,9 @@ import { MaainComponent } from './component/maain/maain.component';
 import { JobsComponent } from './component/jobs/jobs.component';
 import { SingleJobComponent } from './component/single-job/single-job.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FilterComponent } from './component/filter/filter.component'; // Import HttpClientModule
+import { FilterComponent } from './component/filter/filter.component';
+import { MakeResumeComponent } from './component/make-resume/make-resume.component';
+import { TryComponent } from './component/try/try.component';
 
 @NgModule({
   declarations: [
@@ -48,8 +50,10 @@ import { FilterComponent } from './component/filter/filter.component'; // Import
     MaainComponent,
     JobsComponent,
     SingleJobComponent,
-    FilterComponent
-  ],
+    FilterComponent,
+    MakeResumeComponent,
+    TryComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

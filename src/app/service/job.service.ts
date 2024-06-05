@@ -24,30 +24,31 @@ export class jobService {
   //  });
    
   // }
-  // filter(filterData:any): Observable<Job[]> {
-  //   console.log("sari");
+  filterByAreaRegion(filterData:any): Observable<Job[]> {
+    console.log("sari");
     
-  //   return this.getAllJobs().pipe(
-  //     map(jobs => {
-  //       // סינון המשרות על פי הפרמטרים area ו-region
-  //       if (filterData.area && filterData.region) {
-  //         return jobs.filter(job => job.jojbTitle === filterData.area && job.region === filterData.region);
-  //       } else if (filterData.area) {
-  //         return jobs.filter(job => job.jojbTitle === filterData.area);
-  //       } else if (filterData.region) {
-  //         return jobs.filter(job => job.region === filterData.region);
-  //       } else {
-  //         return jobs;
-  //       }
-  //     })
-  //   );
-  // }
+    return this.getAllJobs().pipe(
+      map(jobs => {
+        // סינון המשרות על פי הפרמטרים area ו-region
+        if (filterData.area && filterData.region) {
+          return jobs.filter(job => jobField[job.jobField].toString() === filterData.region && job.area === filterData.area);
+        } else if (filterData.area) {
+          return jobs.filter(job => job.area === filterData.area);
+        } else if (filterData.region) {
+          return jobs.filter(job => jobField[job.jobField].toString() === filterData.region);
+        } else {
+          return jobs;
+        }
+      })
+    );
+  }
 
-
-  
-  filter(job: string, jobs: Job[]): Job[] {
+  filter(job: string): Job[] {
     console.log();
     const a=parseInt(job);
-    return jobs.filter(p =>jobField[p.jobField].toString() === jobField[a].toString());
+    this.getAllJobs().subscribe(res=>{
+    this.jobFilter=res;
+   });
+    return this.jobFilter.filter(p =>jobField[p.jobField].toString() === jobField[a].toString());
   }
 }

@@ -30,7 +30,7 @@ User:User= { id: 0, username: "", password: "", jobSearchField: jobField.Client 
      if (this.newUser) 
      {
       alert("connect");
-       this.router.navigate(['jobs','allJobs']);
+       this.router.navigate(['jobs','allJobs','allJobs']);
       localStorage.setItem('userConnect',JSON.stringify(this.newUser));
      } 
     else {

@@ -10,8 +10,8 @@ export class FilterComponent {
 
   }
 filterData:any = {region:'',area:''}
-@Output()
-filterChanged:EventEmitter<any> = new EventEmitter<any>()
+// @Output()
+// filterChanged:EventEmitter<any> = new EventEmitter<any>()
 
 filter(){
 this.router.navigate(['jobs',this.filterData.region, this.filterData.area])

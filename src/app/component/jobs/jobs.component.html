@@ -12,30 +12,9 @@
 </app-single-job>
 <div>המשרות ששלחת קוקות חיים</div>
 <div>
-    <div *ngFor="let c of listSearchResume let i = index">
-        
-            <p>{{ i }}</p> 
-            <!-- <p>"sssss"</p> -->
-           <p>{{ c}}</p>
-
-
-   </div>
-    {{listSearchResume}}
-</div> 
+   
 <div style="display: flex;">
 <app-filter (filterChanged)="changeFilter($event)"></app-filter>
 </div>
-<div class="list-jobs">
-    <div *ngFor="let c of listJobs let i = index">
-        <div class="job">
-            <p>{{ i }}</p>
-            <p>{{c }}</p>
-            <!-- <app-single-job [jobData]="c"  (addJob)="addJobTOlist($event)"></app-single-job> -->
-            <!-- (resume)="updateResume($event)" -->
-        </div>
-    <!-- </div>{{listJobs}}ליסט -->
-    <!-- <button (click)="filterByField('תחום')">סנן לפי תחום</button> -->
-  <!-- כפתור לסינון לפי אזור משרה -->
-  <!-- <button (click)="filterByField('אזור')">סנן לפי אזור</button> -->
-</div>
-<br>
+
+    
