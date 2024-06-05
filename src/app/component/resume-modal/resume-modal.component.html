@@ -1,0 +1,23 @@
+<!-- <p>resume-modal works!</p>
+<h2>קורות חיים</h2>
+<div>
+  <p><strong>שם מלא:</strong> {{ resumeData.fullName }}</p>
+  <p><strong>תאריך לידה:</strong> {{ resumeData.dateOfBirth }}</p>
+  <p><strong>כישורים:</strong> {{ resumeData.skills }}</p>
+  <p><strong>השכלה:</strong> {{ resumeData.educationLevel }}</p>
+</div>
+<button (click)="onDownloadClick()">הורד קובץ</button>
+<button (click)="onCloseClick()">סגור</button>
+ -->
+ <p>resume-modal works!</p>
+ <h2>קורות חיים</h2>
+ <div>
+   <p><strong>שם מלא:</strong> {{ resumeData.fullName }}</p>
+   <p><strong>תאריך לידה:</strong> {{ resumeData.dateOfBirth }}</p>
+   <p><strong>כישורים:</strong> {{ resumeData.skills }}</p>
+   <p><strong>השכלה:</strong> {{ resumeData.educationLevel }}</p>
+ </div>
+ <button (click)="onCloseClick()">סגור</button>
+ <button (click)="onDownloadClick('blue')">הורד קובץ עם רקע תכלת</button>
+ <button (click)="onDownloadClick('red')">הורד קובץ עם רקע אדום</button>
+ 

@@ -1,4 +1,4 @@
- <p>make-resume works!</p>
+ <!-- <p>make-resume works!</p>
 <div>
     <h2>צור קורות חיים</h2>
     <form (ngSubmit)="onSubmit()">
@@ -26,14 +26,35 @@
       <button type="submit">צור קורות חיים</button>
     </form>
     <br>
-    <div *ngIf="resumeCreated" id="resume">
-      <button (click)="lightF()">לתכלת</button>
-      <button (click)="redF()">לאדום</button>
-      <h2>קורות חיים</h2>
-      <p><strong>שם מלא:</strong> {{ fullName }}</p>
-      <p><strong>תאריך לידה:</strong> {{ dateOfBirth }}</p>
-      <p><strong>כישורים:</strong> {{ skills }}</p>
-      <p><strong>השכלה:</strong> {{ educationLevel }}</p>
-      <button (click)="downloadHTML()">הורד קורות חיים  </button>
-    </div>
+</div> -->
+
+<p>make-resume works!</p>
+<div>
+    <h2>צור קורות חיים</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="fullName">שם מלא:</label>
+        <input type="text" id="fullName" [(ngModel)]="fullName" name="fullName" required>
+      </div>
+      <div>
+        <label for="dateOfBirth">תאריך לידה:</label>
+        <input type="date" id="dateOfBirth" [(ngModel)]="dateOfBirth" name="dateOfBirth" required>
+      </div>
+      <div>
+        <label for="skills">כישורים:</label>
+        <textarea id="skills" [(ngModel)]="skills" name="skills" required></textarea>
+      </div>
+      <div>
+        <label for="educationLevel">השכלה:</label>
+        <select id="educationLevel" [(ngModel)]="educationLevel" name="educationLevel" required>
+          <option value="תיכונית">תיכונית</option>
+          <option value="תואר ראשון">תואר ראשון</option>
+          <option value="תואר שני">תואר שני</option>
+          <option value="דוקטורט">דוקטורט</option>
+        </select>
+      </div>
+      <button type="submit">צור קורות חיים</button>
+    </form>
+    <br>
 </div>
+

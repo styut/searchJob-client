@@ -41,7 +41,9 @@ import { SingleJobComponent } from './component/single-job/single-job.component'
 import { HttpClientModule } from '@angular/common/http';
 import { FilterComponent } from './component/filter/filter.component';
 import { MakeResumeComponent } from './component/make-resume/make-resume.component';
-import { TryComponent } from './component/try/try.component';
+import { PopUpComponent } from './component/pop-up/pop-up.component';
+import { ResumeModalComponent } from './component/resume-modal/resume-modal.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { TryComponent } from './component/try/try.component';
     SingleJobComponent,
     FilterComponent,
     MakeResumeComponent,
-    TryComponent
+    PopUpComponent,
+    ResumeModalComponent,
     ],
   imports: [
     BrowserModule,
@@ -61,7 +64,9 @@ import { TryComponent } from './component/try/try.component';
     ReactiveFormsModule,
     HttpClientModule // Add HttpClientModule to imports
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

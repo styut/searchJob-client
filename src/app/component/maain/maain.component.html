@@ -1,4 +1,3 @@
-<p>maain works!</p>
 <div class="header">
   <span>{{ username }}</span>
   <br>
@@ -11,7 +10,8 @@
     <a [routerLink]="'login'">login</a>
     <input type="text" id="jobSearch">
     <a [routerLink]="'/jobs/'+ userReigon+'/allJobs'">סינון</a>
-  </div>
+  </div>   
+
   <div class="footer">
     <div class="contact-info">
       <p>פרטי יצירת קשר עם מנהל האתר:</p>
@@ -33,4 +33,7 @@
     <p>{{ c}}</p>
   </div>
 </div>
+<button blurOnHover>כפתור</button>
+
+
 <router-outlet></router-outlet>

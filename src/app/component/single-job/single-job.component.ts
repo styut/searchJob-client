@@ -1,88 +1,105 @@
-// import { Component ,Input, EventEmitter, Output} from '@angular/core';
+
+// // import { Component ,Input, EventEmitter, Output} from '@angular/core';
+// // import { Job } from '../../models/job';
+// // import { userResumeService } from "../../service/userResume.service";
+// // @Component({
+// //   selector: 'app-single-job',
+// //   templateUrl: './single-job.component.html',
+// //   styleUrl: './single-job.component.css'
+// // })
+
+// // export class SingleJobComponent {
+ 
+
+// //   userResume:number=0;
+
+// //   uploadedFiles: string[] = [];
+// //   constructor(private ResumeService:userResumeService) {}
+// //   addDetails(){
+
+// //   }
+// //   @Input()
+// //   jobData:Job | null = null
+ 
+// //   onFileSelected(event: any) {
+// //     const file: File = event.target.files[0]; 
+// //     this.uploadedFiles.push(file.name);
+// //     //  this.userResume = Number.parseInt(localStorage.getItem('userResume')||0);
+// //     this.ResumeService.setCount();
+// //   }
+ 
+// //   @Output()
+// //   addJob:EventEmitter<string> = new EventEmitter<string>()
+  
+  
+// // }
+
+
+// import { Component, Input, Output, EventEmitter } from '@angular/core';
 // import { Job } from '../../models/job';
+// import { userResumeService } from "../../service/userResume.service";
 
 // @Component({
 //   selector: 'app-single-job',
 //   templateUrl: './single-job.component.html',
-//   styleUrl: './single-job.component.css'
+//   styleUrls: ['./single-job.component.css']
 // })
-
 // export class SingleJobComponent {
-//   userResume:number=0;
-
+//   userResume: number = 0;
 //   uploadedFiles: string[] = [];
+//   showJobDetails: boolean = false;
+//   listCVjobs: string[] = ['aaa','vvvv'];
 
-//   @Input()
-//   jobData:Job | null = null
+
+
+//   constructor(private ResumeService: userResumeService) {}
+
+//   @Input() jobData: Job | null = null;
+
 //   onFileSelected(event: any) {
-//     const file: File = event.target.files[0]; // הקובץ שנבחר על ידי המשתמש
-//     this.uploadedFiles.push(file.name); // הוספת שם הקובץ לרשימה של הקבצים שהועלו
-//     //  this.userResume = Number.parseInt(localStorage.getItem('userResume')||0);
-//     this.userResume = parseInt(localStorage.getItem('userResume') || '') || 0;
-
-
-//     this.userResume++; // הגדלת מונה קורות החיים שנשלחו
-//     // localStorage.setItem('userResume',Number.stringify(this.userResume));
-//     localStorage.setItem('userResume', this.userResume.toString());
-
-//     this.resume.emit(this.userResume);
-//     this.addJob.emit(this.jobData?.jojbTitle);
- 
-
+//     const file: File = event.target.files[0]; 
+//     this.uploadedFiles.push(file.name);
+//     this.ResumeService.setCount();
+//     // this.ResumeService.setCv(file.name);
 
 //   }
-//   @Output()
-//   resume:EventEmitter<number> = new EventEmitter<number>()
-//   @Output()
-//   addJob:EventEmitter<string> = new EventEmitter<string>()
-  
-  
+
+//   showDetails() {
+//     this.showJobDetails = true;
+//   }
 // }
-// -----------------------
-import { Component ,Input, EventEmitter, Output} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Job } from '../../models/job';
 import { userResumeService } from "../../service/userResume.service";
+
 @Component({
   selector: 'app-single-job',
   templateUrl: './single-job.component.html',
-  styleUrl: './single-job.component.css'
+  styleUrls: ['./single-job.component.css']
 })
-
 export class SingleJobComponent {
- 
-
-  userResume:number=0;
-
+  userResume: number = 0;
   uploadedFiles: string[] = [];
-  constructor(private ResumeService:userResumeService) {}
+  showJobDetails: boolean = false;
+  showPopUp: boolean = false;
+  listCVjobs: string[] = [];
 
-  @Input()
-  jobData:Job | null = null
-  // onFileSelected(event: any) {
-  //   const file: File = event.target.files[0]; // הקובץ שנבחר על ידי המשתמש
-  //   this.uploadedFiles.push(file.name); // הוספת שם הקובץ לרשימה של הקבצים שהועלו
-  //   //  this.userResume = Number.parseInt(localStorage.getItem('userResume')||0);
-  //   this.userResume = parseInt(localStorage.getItem('userResume') || '') || 0;
+  constructor(private ResumeService: userResumeService) {}
 
+  @Input() jobData: Job | null = null;
 
-  //   this.userResume++; // הגדלת מונה קורות החיים שנשלחו
-  //   localStorage.setItem('userResume', this.userResume.toString());
-
-  //   this.resume.emit(this.userResume);
-  //   this.addJob.emit(this.jobData?.jojbTitle);
- 
-
-
-  // }
   onFileSelected(event: any) {
-    const file: File = event.target.files[0]; // הקובץ שנבחר על ידי המשתמש
-    this.uploadedFiles.push(file.name); // הוספת שם הקובץ לרשימה של הקבצים שהועלו
-    //  this.userResume = Number.parseInt(localStorage.getItem('userResume')||0);
+    const file: File = event.target.files[0]; 
+    this.uploadedFiles.push(file.name);
     this.ResumeService.setCount();
   }
- 
-  @Output()
-  addJob:EventEmitter<string> = new EventEmitter<string>()
-  
-  
+
+  showDetails() {
+    this.showJobDetails = true;
+  }
+
+  openPopUp() {
+    this.listCVjobs = JSON.parse(localStorage.getItem('listCv') || '[]');
+    this.showPopUp = true;
+  }
 }
