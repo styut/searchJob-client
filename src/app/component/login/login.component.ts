@@ -3,6 +3,7 @@ import { UserService } from "../../service/user.service";
 import { User } from "../../models/user";
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router'; // Import Router for navigation
+import {  jobField} from "../../models/jobField";
 
 @Component({
   selector: 'app-login',
@@ -10,8 +11,8 @@ import { Router } from '@angular/router'; // Import Router for navigation
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-newUser:User= { id: 0, username: "", password: "", jobSearchField: "" } ;
-User:User= { id: 0, username: "", password: "", jobSearchField: "" } ;
+newUser:User= { id: 0, username: "", password: "", jobSearchField: jobField.Client } ;
+User:User= { id: 0, username: "", password: "", jobSearchField: jobField.Client } ;
 @ViewChild('f') f: NgForm | null = null;
  
   constructor(private userService:UserService , private router: Router) {
@@ -28,8 +29,8 @@ User:User= { id: 0, username: "", password: "", jobSearchField: "" } ;
      this.newUser= res;
      if (this.newUser) 
      {
-      alert(" connect");
-       this.router.navigate(['/']);
+      alert("connect");
+       this.router.navigate(['jobs','allJobs']);
       localStorage.setItem('userConnect',JSON.stringify(this.newUser));
      } 
     else {

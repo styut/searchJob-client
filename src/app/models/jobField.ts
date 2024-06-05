@@ -1,5 +1,5 @@
 export enum jobField{
-    Boys,
-    Girls,
-    All
+    QA,
+    Client,
+    Server
 }
