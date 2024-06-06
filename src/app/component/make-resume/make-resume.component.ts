@@ -1,142 +1,15 @@
 
 
-// // import { Component } from '@angular/core';
-
-// // @Component({
-// //   selector: 'app-make-resume',
-// //   templateUrl: './make-resume.component.html',
-// //   styleUrls: ['./make-resume.component.css']
-// // })
-// // export class MakeResumeComponent {
-// //   fullName: string = "";
-// //   dateOfBirth: string = "";
-// //   skills: string = "";
-// //   educationLevel: string = "";
-// //   resumeCreated: boolean = false;
-// //   backgroundStyle: string = ""; // משתנה שיקבע את סגנון הרקע
-
-// //   onSubmit() {
-// //     this.resumeCreated = true;
-// //   }
-
-// //   lightF() {
-// //     this.backgroundStyle = "lightblue"; // קובעים סגנון רקע תכלת
-// //   }
-
-// //   redF() {
-// //     this.backgroundStyle = "red"; // קובעים סגנון רקע אדום
-// //   }
-
-// //   downloadHTML() {
-// //     const resumeContent = `
-// //       <style>
-// //         body {
-// //           background-color: ${this.backgroundStyle}; // משתמשים בערך של backgroundStyle
-// //         }
-// //       </style>
-// //       <div id="resume">
-// //         <h2>קורות חיים</h2>
-// //         <p><strong>שם מלא:</strong> ${this.fullName}</p>
-// //         <p><strong>תאריך לידה:</strong> ${this.dateOfBirth}</p>
-// //         <p><strong>כישורים:</strong> ${this.skills}</p>
-// //         <p><strong>השכלה:</strong> ${this.educationLevel}</p>
-// //       </div>
-// //     `;
-// //     const element = document.createElement('a');
-// //     const file = new Blob([resumeContent], { type: 'text/html' });
-// //     element.href = URL.createObjectURL(file);
-// //     element.download = 'resume.html';
-// //     document.body.appendChild(element);
-// //     element.click();
-// //   }  
-// // }
-
-
-
-
-// import { MatDialog } from '@angular/material/dialog';
-// import { Component } from '@angular/core';
-// import { ResumeModalComponent } from '../resume-modal/resume-modal.component';
-
-// @Component({
-//   selector: 'app-make-resume',
-//   templateUrl: './make-resume.component.html',
-//   styleUrls: ['./make-resume.component.css']
-// })
-// export class MakeResumeComponent {
-//   constructor(public dialog: MatDialog) { }
-
-//   fullName: string = "";
-//   dateOfBirth: string = "";
-//   skills: string = "";
-//   educationLevel: string = "";
-//   resumeCreated: boolean = false;
-//   backgroundStyle:string='white';
-
-//   onSubmit() {
-//     this.resumeCreated = true;
-
-//     const dialogRef = this.dialog.open(ResumeModalComponent, {
-//       width: '800px', // רוחב החלון
-//       data: {  // הנתונים שיועברו למודל
-//         fullName: this.fullName,
-//         dateOfBirth: this.dateOfBirth,
-//         skills: this.skills,
-//         educationLevel: this.educationLevel
-//       }
-//     });
-
-//     dialogRef.afterClosed().subscribe(result => {
-//       this.resumeCreated = false; // סגירת הפופ-אפ תחזיר את הערך לשקר
-//       if (result === 'download') {
-//         this.downloadHTML();
-//       }
-//     });
-//   }
-
-//   lightF() {
-//     this.resumeCreated = false; // סגירת הפופ-אפ תחזיר את הערך לשקר
-//     this.backgroundStyle = "lightblue"; // קובעים סגנון רקע תכלת
-//   }
-
-//   redF() {
-//     this.resumeCreated = false; // סגירת הפופ-אפ תחזיר את הערך לשקר
-//     this.backgroundStyle = "red"; // קובעים סגנון רקע אדום
-//   }
- 
-//   downloadHTML() {
-//     const resumeContent = `
-//       <style>
-//         body {
-//           background-color: ${this.backgroundStyle}; // משתמשים בערך של backgroundStyle
-//         }
-//       </style>
-//       <div id="resume">
-//         <h2>קורות חיים</h2>
-//         <p><strong>שם מלא:</strong> ${this.fullName}</p>
-//         <p><strong>תאריך לידה:</strong> ${this.dateOfBirth}</p>
-//         <p><strong>כישורים:</strong> ${this.skills}</p>
-//         <p><strong>השכלה:</strong> ${this.educationLevel}</p>
-//       </div>
-//     `;
-//     const element = document.createElement('a');
-//     const file = new Blob([resumeContent], { type: 'text/html' });
-//     element.href = URL.createObjectURL(file);
-//     element.download = 'resume.html';
-//     document.body.appendChild(element);
-//     element.click();
-//   }
-// }
-
 
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ResumeModalComponent } from '../resume-modal/resume-modal.component';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-make-resume',
   templateUrl: './make-resume.component.html',
-  styleUrls: ['./make-resume.component.css']
+  styleUrl: './make-resume.component.scss'
 })
 export class MakeResumeComponent {
   constructor(public dialog: MatDialog) { }
@@ -146,57 +19,79 @@ export class MakeResumeComponent {
   skills: string = "";
   educationLevel: string = "";
   resumeCreated: boolean = false;
-  backgroundStyle: string = "white"; // משתנה שיקבע את סגנון הרקע
+  resumeStyle: string = "deafult"; // משתנה שיקבע את סגנון הרקע
 
   onSubmit() {
     this.resumeCreated = true;
 
     const dialogRef = this.dialog.open(ResumeModalComponent, {
-      width: '800px', // רוחב החלון
+      width: '800px',
+     // רוחב החלון
       data: {  // הנתונים שיועברו למודל
         fullName: this.fullName,
         dateOfBirth: this.dateOfBirth,
         skills: this.skills,
-        educationLevel: this.educationLevel
+        educationLevel: this.educationLevel,
+        resumeStyle:this.resumeStyle,
       }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result =='blue') {
-        this.backgroundStyle = "lightblue";
+      if (result =='down') 
         this.downloadHTML();
-      } else if (result == 'red') {
-        this.backgroundStyle = "red";
-        this.downloadHTML();
-      }
+     
     });
   }
-
-  lightF() {
-    this.resumeCreated = false; // סגירת הפופ-אפ תחזיר את הערך לשקר
-    this.backgroundStyle = "lightblue"; // קובעים סגנון רקע תכלת
+  makeStyle(){
+    this.resumeStyle = "luxury";
   }
-
-  redF() {
-    this.resumeCreated = false; // סגירת הפופ-אפ תחזיר את הערך לשקר
-    this.backgroundStyle = "red"; // קובעים סגנון רקע אדום
+  makeClasic(){
+    this.resumeStyle = "classic";
   }
-
   downloadHTML() {
     const resumeContent = `
-      <style>
-        body {
-          background-color: ${this.backgroundStyle}; // משתמשים בערך של backgroundStyle
-        }
-      </style>
-      <div id="resume">
-        <h2>קורות חיים</h2>
-        <p><strong>שם מלא:</strong> ${this.fullName}</p>
-        <p><strong>תאריך לידה:</strong> ${this.dateOfBirth}</p>
-        <p><strong>כישורים:</strong> ${this.skills}</p>
-        <p><strong>השכלה:</strong> ${this.educationLevel}</p>
-      </div>
-    `;
+    <style>
+      #resume {
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 600px;
+      }
+      .classic {
+        background-color: #c4c4c4; /* אפור */
+        border: 2px solid #008000; /* ירוק */
+        color: #ffffff; /* לבן */
+      }
+      .luxury {
+        background-color: #000000; /* שחור */
+        border: 2px solid #ff8c00; /* כתום */
+        color:  #ff8c00; /* לבן */
+      }
+        .deafult {
+        background-color: white;
+        border: 2px solid  purple;
+        color:  solid purple; 
+      }
+      h2 {
+        text-align: center;
+      }
+      p {
+        margin-bottom: 10px;
+      }
+      strong {
+        font-weight: bold;
+      }
+    </style>
+    <div id="resume" class="${this.resumeStyle}">
+      <h2>קורות חיים</h2>
+      <p><strong>שם מלא:</strong> ${this.fullName}</p>
+      <p><strong>תאריך לידה:</strong> ${this.dateOfBirth}</p>
+      <p><strong>כישורים:</strong> ${this.skills}</p>
+      <p><strong>השכלה:</strong> ${this.educationLevel}</p>
+    </div>
+  `;
+
+    
     const element = document.createElement('a');
     const file = new Blob([resumeContent], { type: 'text/html' });
     element.href = URL.createObjectURL(file);
