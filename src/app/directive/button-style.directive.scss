@@ -1,0 +1,16 @@
+:host {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #36b53a; /* צבע רקע */
+    color: white; /* צבע טקסט */
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  :host:hover {
+    background-color: #45a049; /* צבע רקע בעת העכברוש */
+  }
+  
