@@ -1,21 +1,4 @@
-<!-- <div class="job">
-    <p>תאור: {{ jobData?.jobField }}</p>
-    <p>תאור: {{ jobData?.scopeOfHours }}</p>
-    <br>
-    <button (click)="showDetails()">להצגת פרטי המשרה:</button>
-    <div *ngIf="showJobDetails">
-        <p>תפקיד: {{ jobData?.jobField }}</p>
-        <p>כותרת: {{ jobData?.jojbTitle }}</p>
-        <p>תיאור שעות: {{ jobData?.scopeOfHours }}</p>
-        <p>אזור: {{ jobData?.area }}</p>
-        <p>דרישות: {{ jobData?.requirements }}</p>
-        <p>עבודה מהבית: {{ jobData?.workFromHome }}</p>
-    </div>
-    <br>
-    <input type="file" (change)="onFileSelected($event)">
-    <span>{{uploadedFiles}}</span> 
-</div>
- -->
+<!-- 
  <div class="job">
     <p>תאור: {{ jobData?.jobField }}</p>
     <p>תאור: {{ jobData?.scopeOfHours }}</p>
@@ -35,6 +18,24 @@
     <button (click)="openPopUp()">הצג קורות חיים שנשלחו</button>
 </div>
 
-<!-- <app-pop-up *ngIf="showPopUp" [listCVjobs]="listCVjobs"></app-pop-up> -->
+ -->
 
-<!-- <app-pop-up [appliedJobs]="listCVjobs"></app-pop-up> -->
+ <div class="job">
+    <p>תאור: {{ jobData?.jobField }}</p>
+    <p>תיאור שעות: {{ jobData?.scopeOfHours }}</p>
+    <br>
+    <button (click)="showDetails()">להצגת פרטי המשרה:</button>
+    <div *ngIf="showJobDetails">
+        <p>תפקיד: {{ jobData?.jobField }}</p>
+        <p>כותרת: {{ jobData?.jojbTitle }}</p>
+        <p>תיאור שעות: {{ jobData?.scopeOfHours }}</p>
+        <p>אזור: {{ jobData?.area }}</p>
+        <p>דרישות: {{ jobData?.requirements }}</p>
+        <p>עבודה מהבית: {{ jobData?.workFromHome }}</p>
+        <button (click)="openPopUp()">הצג קורות חיים שנשלחו</button>
+    </div>
+    <br>
+    <input type="file" (change)="onFileSelected($event)">
+    <span>{{ uploadedFiles }}</span> 
+    
+</div>
