@@ -44,6 +44,8 @@ import { MakeResumeComponent } from './component/make-resume/make-resume.compone
 import { PopUpComponent } from './component/pop-up/pop-up.component';
 import { ResumeModalComponent } from './component/resume-modal/resume-modal.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { ListJobSentCvComponent } from './component/list-job-sent-cv/list-job-sent-cv.component';
+import { ButtonStyleDirective } from './directive/button-style.directive';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     MakeResumeComponent,
     PopUpComponent,
     ResumeModalComponent,
+    ListJobSentCvComponent,
+    ButtonStyleDirective,
     ],
   imports: [
     BrowserModule,

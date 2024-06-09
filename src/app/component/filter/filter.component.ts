@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
+  styleUrl: './filter.component.scss'
 })
 export class FilterComponent {
   constructor(private router:Router){

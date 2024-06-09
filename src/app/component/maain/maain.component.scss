@@ -1,50 +1,63 @@
-// maain.component.scss
-
 .header {
-    background-color: #f2f2f2; // Gray background
-    padding: 20px;
-    text-align: center;
-    
-    span {
-      font-size: 24px;
-      font-weight: bold;
-    }
+  background-color: rgb(240, 236, 236); /* רקע צבע שחור */
+  color: rgb(12, 12, 12); /* צבע טקסט לבן */
+  padding: 20px; /* ריווח בסביבת הניתוב */
+  font-weight: bold;
+  font-size: larger;
   
-    .user-info {
-      margin-top: 20px;
-  
-      a {
-        margin-right: 10px;
-        color: blue; // Link color
-        text-decoration: none;
-  
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-  
-      input[type="text"] {
-        width: 150px;
-        padding: 5px;
-      }
-    }
-  }
-  
-  .footer {
-    background-color: #913242; // Pink background
-    padding: 1px;
-    text-align: center;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-  
-    .contact-info {
-      p {
-        margin-bottom: 2px;
-      }
-    }
-  }
-  
-  
-  
+}
+
+.header .user-info {
+  display: flex; /* יישום של הפריטים כ- Flex */
+  justify-content: space-between; /* מרחק אופקי בין הפריטים */
+  align-items: center; /* מיון אנכי של הפריטים */
+}
+
+.header .user-info span {
+  margin-right: 10px; /* מרחק מימין לתווים טקסט */
+}
+
+.header .user-info a {
+  color: rgb(13, 12, 12); /* צבע טקסט לבן */
+  text-decoration: none; /* ללא קישור */
+}
+
+.header .user-info a:hover {
+  text-decoration: underline; /* קשירת קו תחתון בעכבר מעל לינק */
+}
+
+.header .user-info i {
+  margin-right: 5px; /* מרחק מימין לפני האיקון */
+}
+
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 100px;
+  width: 100%;
+  // padding: 10px;
+  background-color:  rgb(250, 249, 249);
+  color: #131313;
+  text-align: center;
+}
+.job-search-logo {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  background-color:#b58c70;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.job-search-logo span {
+  color: white;
+  font-style: italic;
+}
+
+.job-search-logo em {
+  font-style: italic;
+  font-size: 12px;
+}

@@ -2,7 +2,7 @@ import { jobField } from "./jobField";
 export interface Job {
     id: number;
     jobField: jobField;
-    jojbTitle: string;
+    jobTitle: string;
     scopeOfHours: string;
     area: string;
     requirements: string[];

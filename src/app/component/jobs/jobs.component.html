@@ -1,20 +1,12 @@
-<p>jobs works!</p>
-<!-- <button (click)="changeSort()">{{sortOrder === 1? "^" : "v"}}</button> -->
-<!-- <app-filter></app-filter> -->
-<!-- <span>כמות קו"ח שנשלחו:{{userResume}} </span> -->
 <br>
-<span>תחום המשרה</span>
 <app-single-job 
   *ngFor="let job of listJobs" 
   [jobData]="job" 
  >
- <!-- (resume)="updateResume($event)" -->
 </app-single-job>
-<div>המשרות ששלחת קוקות חיים</div>
 <div>
-   
 <div style="display: flex;">
 <app-filter (filterChanged)="changeFilter($event)"></app-filter>
 </div>
+<br><br><br><br><br><br><br>
 
-    

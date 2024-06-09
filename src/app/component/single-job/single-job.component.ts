@@ -1,105 +1,57 @@
-
-// // import { Component ,Input, EventEmitter, Output} from '@angular/core';
-// // import { Job } from '../../models/job';
-// // import { userResumeService } from "../../service/userResume.service";
-// // @Component({
-// //   selector: 'app-single-job',
-// //   templateUrl: './single-job.component.html',
-// //   styleUrl: './single-job.component.css'
-// // })
-
-// // export class SingleJobComponent {
- 
-
-// //   userResume:number=0;
-
-// //   uploadedFiles: string[] = [];
-// //   constructor(private ResumeService:userResumeService) {}
-// //   addDetails(){
-
-// //   }
-// //   @Input()
-// //   jobData:Job | null = null
- 
-// //   onFileSelected(event: any) {
-// //     const file: File = event.target.files[0]; 
-// //     this.uploadedFiles.push(file.name);
-// //     //  this.userResume = Number.parseInt(localStorage.getItem('userResume')||0);
-// //     this.ResumeService.setCount();
-// //   }
- 
-// //   @Output()
-// //   addJob:EventEmitter<string> = new EventEmitter<string>()
-  
-  
-// // }
-
-
-// import { Component, Input, Output, EventEmitter } from '@angular/core';
-// import { Job } from '../../models/job';
-// import { userResumeService } from "../../service/userResume.service";
-
-// @Component({
-//   selector: 'app-single-job',
-//   templateUrl: './single-job.component.html',
-//   styleUrls: ['./single-job.component.css']
-// })
-// export class SingleJobComponent {
-//   userResume: number = 0;
-//   uploadedFiles: string[] = [];
-//   showJobDetails: boolean = false;
-//   listCVjobs: string[] = ['aaa','vvvv'];
-
-
-
-//   constructor(private ResumeService: userResumeService) {}
-
-//   @Input() jobData: Job | null = null;
-
-//   onFileSelected(event: any) {
-//     const file: File = event.target.files[0]; 
-//     this.uploadedFiles.push(file.name);
-//     this.ResumeService.setCount();
-//     // this.ResumeService.setCv(file.name);
-
-//   }
-
-//   showDetails() {
-//     this.showJobDetails = true;
-//   }
-// }
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input ,OnInit} from '@angular/core';
 import { Job } from '../../models/job';
+import { jobField } from '../../models/jobField';
 import { userResumeService } from "../../service/userResume.service";
-
+import { MatDialog } from '@angular/material/dialog';
+import { ListJobSentCvComponent } from '../list-job-sent-cv/list-job-sent-cv.component';
 @Component({
   selector: 'app-single-job',
   templateUrl: './single-job.component.html',
-  styleUrls: ['./single-job.component.css']
+  styleUrls: ['./single-job.component.scss']
 })
 export class SingleJobComponent {
-  userResume: number = 0;
+  hiddenorShow:string="הצגת פרטי משרה:";
   uploadedFiles: string[] = [];
   showJobDetails: boolean = false;
-  showPopUp: boolean = false;
-  listCVjobs: string[] = [];
-
-  constructor(private ResumeService: userResumeService) {}
+  jobTitle:any='';
+ 
+  constructor(private resumeService: userResumeService,public dialog: MatDialog) {}
+  ngOnInit() { 
+      if (this.jobData && this.jobData.jobField) {
+        this.jobTitle=jobField[this.jobData?.jobField].toString(); 
+    }
+  }
 
   @Input() jobData: Job | null = null;
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0]; 
     this.uploadedFiles.push(file.name);
-    this.ResumeService.setCount();
+    this.resumeService.setCount();
+    if (this.jobData && this.jobData.jobTitle) {
+      this.resumeService.setCv(this.jobData?.jobTitle);
+    }
+    alert("Your CV has been sent successfully");
   }
 
   showDetails() {
-    this.showJobDetails = true;
+    // this.showJobDetails = true;
+    this.showJobDetails=!(this.showJobDetails);
+    if(this.showJobDetails){
+        this.hiddenorShow=" - "
+    }
+    else  this.hiddenorShow=" + ";
   }
-
   openPopUp() {
-    this.listCVjobs = JSON.parse(localStorage.getItem('listCv') || '[]');
-    this.showPopUp = true;
-  }
+     this.dialog.open(ListJobSentCvComponent, {
+      width: '350px', 
+      data: {} 
+    });
+  
+  
 }
+
+
+}
+
+

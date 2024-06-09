@@ -6,34 +6,22 @@
   <br>
   <br>
   <div class="user-info">
-
     <a [routerLink]="'login'">login</a>
-    <input type="text" id="jobSearch">
-    <a [routerLink]="'/jobs/'+ userReigon+'/allJobs'">סינון</a>
+    <a [routerLink]="'/jobs/'+ userReigon+'/allJobs'">משרות לתחום שלי</a>
   </div>   
+<div class="job-search-logo">search<span>Job</span><em>Esti Chevy Sari</em></div>
 
   <div class="footer">
     <div class="contact-info">
-      <p>פרטי יצירת קשר עם מנהל האתר:</p>
+      <h2>פרטי יצירת קשר עם מנהל האתר</h2>
       <p>טלפון: 123-456-7890</p>
       <!-- <p>אימייל: admin@example.com</p> -->
     </div>
-    <!-- הכפתור להעלאת קבצים -->
-    <!-- <input type="file" (change)="onFileSelected($event)">
- <span>{{ uploadedFiles }}</span> -->
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    
+    
   </div>
-  <div *ngFor="let c of listSearchResume let i = index">
-
-    <p>{{ i }}</p>
-    <p>{{ c}}</p>
-  </div>
+  
 </div>
-<button blurOnHover>כפתור</button>
 
 
 <router-outlet></router-outlet>

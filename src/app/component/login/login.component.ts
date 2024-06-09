@@ -8,7 +8,7 @@ import {  jobField} from "../../models/jobField";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.scss'
 })
 export class LoginComponent {
 newUser:User= { id: 0, username: "", password: "", jobSearchField: jobField.Client } ;

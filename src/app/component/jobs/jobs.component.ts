@@ -6,7 +6,7 @@ import { jobService } from "../../service/job.service";
 @Component({
   selector: 'app-jobs',
   templateUrl: './jobs.component.html',
-  styleUrls: ['./jobs.component.css']
+  styleUrls: ['./jobs.component.scss']
 })
 export class JobsComponent implements OnInit {
   constructor(
@@ -38,14 +38,15 @@ export class JobsComponent implements OnInit {
   }
 
   changeFilter($event: any) {
-    console.log("st");
-    console.log($event);
+ 
     this.listJobs = this.jobService.filter($event);
   }
 
   selectedJob: Job | null = null;
 
   showDetails(job: Job) {
+    console.log("esttt");
+    
     this.selectedJob = job;
   }
 
