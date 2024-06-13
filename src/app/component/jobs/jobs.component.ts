@@ -29,7 +29,6 @@ export class JobsComponent implements OnInit {
           this.jobService.filterByAreaRegion({ "region": this.region, "area": this.area }).subscribe(res => this.listJobs = res);
         }
         else if (this.region != "allJobs") {
-          console.log("kkkk");
           this.changeFilter(this.region);
 
         }
@@ -45,8 +44,6 @@ export class JobsComponent implements OnInit {
   selectedJob: Job | null = null;
 
   showDetails(job: Job) {
-    console.log("esttt");
-    
     this.selectedJob = job;
   }
 

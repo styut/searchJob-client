@@ -4,6 +4,7 @@ import { User } from "../../models/user";
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router'; // Import Router for navigation
 import {  jobField} from "../../models/jobField";
+import { userResumeService } from "../../service/userResume.service";
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ newUser:User= { id: 0, username: "", password: "", jobSearchField: jobField.Clie
 User:User= { id: 0, username: "", password: "", jobSearchField: jobField.Client } ;
 @ViewChild('f') f: NgForm | null = null;
  
-  constructor(private userService:UserService , private router: Router) {
+  constructor(private userService:UserService , private router: Router,private userResumeService: userResumeService) {
   }
 
   signUp() {
@@ -30,8 +31,14 @@ User:User= { id: 0, username: "", password: "", jobSearchField: jobField.Client 
      if (this.newUser) 
      {
       alert("connect");
-       this.router.navigate(['jobs','allJobs','allJobs']);
+      console.log("jjjjj");
+      
       localStorage.setItem('userConnect',JSON.stringify(this.newUser));
+       
+      this.userResumeService.updateUser();
+       this.router.navigate(['jobs','allJobs','allJobs']);
+       
+
      } 
     else {
       alert("no connect");

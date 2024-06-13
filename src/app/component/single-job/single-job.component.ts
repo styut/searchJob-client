@@ -35,7 +35,6 @@ export class SingleJobComponent {
   }
 
   showDetails() {
-    // this.showJobDetails = true;
     this.showJobDetails=!(this.showJobDetails);
     if(this.showJobDetails){
         this.hiddenorShow=" - "

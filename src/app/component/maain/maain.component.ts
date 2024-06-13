@@ -13,31 +13,35 @@ import { Subscription } from 'rxjs';
 })
 
 export class MaainComponent implements OnInit, OnDestroy {
-  userResume: number = 4;
+  userResume: number = 0;
+  userResum: number = 0;
   user: User = { id: 0, username: '', password: '', jobSearchField: jobField.Client };
   username: string = '';
   userReigon: jobField = jobField.Client;
   subscription: Subscription = new Subscription();
 
-  constructor(private userResumeService: userResumeService,) {}
+  constructor(private userResumeService: userResumeService) {}
   ngOnInit() { 
-    const storedUserResume = localStorage.getItem('userResume');
-    if (storedUserResume) {
-        this.userResume = parseInt(storedUserResume) || 0;
-    }
     const storedUser = localStorage.getItem('userConnect');
     if (storedUser) {
         this.user = JSON.parse(storedUser);
         this.userReigon = this.user.jobSearchField;
         this.username = this.user.username || 'אורח';
+        const storedUserResume = localStorage.getItem(this.user.password);
+     if (storedUserResume) {
+        this.userResume = parseInt(storedUserResume) || 0;
+     }
+    
     } 
     else {
         window.location.href = "login";
         this.username = 'אורח';
     }
     this.subscription = this.userResumeService.getCount().subscribe(count => {
-        this.userResume = count;
-    });
+      console.log(count+"count");
+      
+      this.userResume = count;
+  });
 }
 
 
